@@ -2,11 +2,9 @@ from tkinter import *
 from tkinter import messagebox
 import pyperclip
 import json
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 def pass_gen():
     password_gap.delete(0, END)
-    # Password Generator Project
     import random
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -33,8 +31,6 @@ def pass_gen():
 
     pyperclip.copy(new_pass)
 
-# ---------------------------- SAVE PASSWORD ------------------------------- #
-
 def search_bar():
     find = web_gap.get()
 
@@ -52,7 +48,6 @@ def search_bar():
             messagebox.showerror(title="INVALID ORG", message=f"No saves for {find}")
         else:
             messagebox.showinfo(title=f"{find}", message=f"EMAIL = {mail} \nPASSWORD = {key}")
-
 
 def onclick():
     user = email_gap.get()
@@ -75,7 +70,6 @@ def onclick():
         if is_ok:
             try:
                 with open("data.json", "r") as file:
-                    # json.dump(new_data, file, indent=4)
                     data = json.load(file)
                     data.update(new_data)
             except json.decoder.JSONDecodeError:
@@ -91,11 +85,9 @@ def clear():
     web_gap.delete(0, END)
     password_gap.delete(0, END)
 
-# ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.config(padx=50, pady=50)
 window.title("Password Manager")
-
 
 lock_img = PhotoImage(file="logo.png")
 canvas = Canvas(width=200, height=200)
@@ -114,7 +106,7 @@ web_gap.grid(column=1, row=1, columnspan=1)
 email = Label(text="Email/Username:")
 email.grid(column= 0, row=2)
 email_gap = Entry(width=35)
-email_gap.insert(0, "michealudekwu@gmail.com")
+email_gap.insert(0, "somthingsomething@gmail.com")
 email_gap.grid(column= 1, row=2, columnspan=2)
 
 password = Label(text="Password:")

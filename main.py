@@ -14,11 +14,9 @@ with open("secret.key", "rb") as enc_key:
     key = enc_key.read()
 
 fernet = Fernet(key)
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 def pass_gen():
     password_gap.delete(0, END)
-    # Password Generator Project
     import random
     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
                'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P',
@@ -44,8 +42,6 @@ def pass_gen():
     password_gap.insert(0, new_pass)
 
     pyperclip.copy(new_pass)
-
-# ---------------------------- SAVE PASSWORD ------------------------------- #
 
 def search_bar():
     find = web_gap.get()
@@ -111,14 +107,13 @@ def onclick():
             with open("encrypted_data.json", "wb") as enc_write:
                 enc_write.write(encrypt)
 
-    os.remove("data.json")#removes original file
+    os.remove("data.json")
     clear()
 
 def clear():
     web_gap.delete(0, END)
     password_gap.delete(0, END)
 
-# ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.config(padx=50, pady=50)
 window.title("Password Manager")
